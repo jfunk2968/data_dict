@@ -1,3 +1,3 @@
 #data_dict
 
-Creates a nicely formatted XLSX data dictionary for a pandas dataframe.
+Simple function that creates a nicely formatted XLSX data dictionary for a pandas dataframe.
