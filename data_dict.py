@@ -14,10 +14,9 @@ def data_dict(df, outfile):
         return "".join(tops)
 
     def get_col_widths(dataframe):
-        #idx_max = max([len(str(s)) for s in dataframe.index.values] + [len(str(dataframe.index.name))])
         return [max([len(str(s)) for s in dataframe[col].values] + [len(str(col))]) for col in dataframe.columns]
 
-    def _removeNonAscii(s): 
+    def removeNonAscii(s): 
         return "".join(i for i in str(s) if ord(i)<128)
 
     dictionary = pd.DataFrame(df.dtypes.astype('U'))
@@ -33,7 +32,7 @@ def data_dict(df, outfile):
     dictionary['Mode%'] = dictionary['Variable'].apply(lambda x: df[x].value_counts(dropna=False).max()/float(len(df)))
     dictionary['Notes'] = ''
     
-    dictionary['TopValues']= np.vectorize(_removeNonAscii)(dictionary['TopValues'])
+    dictionary['TopValues']= np.vectorize(removeNonAscii)(dictionary['TopValues'])
 
     writer = pd.ExcelWriter(outfile, engine='xlsxwriter')
     dictionary.to_excel(writer, sheet_name='Data Dictionary', index=False)
