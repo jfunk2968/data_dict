@@ -8,7 +8,7 @@ def data_dict(df, outfile):
         vals = col.value_counts()
         out = vals[0:min(len(vals),5)].to_dict()  
         tops = []
-        for i in sorted(t.items(), key=lambda kv: kv[1], reverse=True):
+        for i in sorted(out.items(), key=lambda kv: kv[1], reverse=True):
             s = str(i[0])+"  :  "+str(i[1])+"\n"
             tops.append(s)
         return "".join(tops)
