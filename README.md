@@ -1,8 +1,8 @@
-#data_dict
+# data_dict
 
-Simple function that creates a nicely formatted XLSX data dictionary for a pandas dataframe.
+Simple Python function to create a nicely formatted XLSX data dictionary for a pandas dataframe.
 
-##Fields Include:
+## Fields Include:
 * Column names and dtypes
 * Empty field to add descriptions manually
 * Missing rate
