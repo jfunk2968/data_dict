@@ -3,7 +3,12 @@ import numpy as np
 
 def data_dict(df_list, tabs_list, outfile):
     """Creates a nicely formatted Excel data dictionary for a pandas data frame.
+
+    df_list - list of dataframes to include, each as it's own tab
+    tabs_list - list of names for the tabs, same length and order as df_list
+    outfile - name of excel file to output
     """
+    
     def get_top_vals(col):
         vals = col.value_counts()
         out = vals[0:min(len(vals),5)].to_dict()  
